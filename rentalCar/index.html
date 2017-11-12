@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>RentalCar</title>
+	<link href="" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<h1>Business Name</h1>
+	<p id="name">empty</p>
+	<h3>Economy Cars</h3>
+	<p id="economy">economy</p>
+	<h3>Economy Cars Available</h3>
+	<p id="economyAvail">Economy cars Available</p>
+	<h3>Midsize Cars</h3>
+	<p id="midsize">Midsize</p>
+	<h3>Midsize Cars Available</h3>
+	<p id="midsizeAvail">Midsize Cars Available</p><button onclick="infoFunction()" type="button">update availability</button> <button onclick="Business.rentEconomy()" type="button">Rent 1 Economy Car</button> <button onclick="Business.rentMidsize()" type="button">Rent 1 Midsize Car</button> 
+	<script>
+	                   var Business = {
+	                     name: 'Enterprise Rental Cars',
+	                     economyCars: 500,
+	                     carsBooked: 150,
+	                     midsizeCars: 500,
+	                     midsizeBooked: 100, 
+	                     
+	                     economyAvail: function() {
+	                       return this.economyCars - this.carsBooked;
+	                       }  ,  
+	                      
+	                     midsizeAvail: function() {
+	                       return this.midsizeCars - this.midsizeBooked;
+	                       }   ,
+	                       
+	                     rentEconomy: function() {
+	                         this.carsBooked++;
+	                         document.getElementById("economyAvail").innerHTML = Business.economyAvail();
+	                     },
+	                     
+	                     rentMidsize: function() {
+	                         this.midsizeBooked++;
+	                         document.getElementById("midsizeAvail").innerHTML = Business.midsizeAvail();
+	                        
+	                      }
+	                   };
+	                   
+	            function infoFunction() {
+	                       document.getElementById("name").innerHTML = Business.name;
+	                   
+	                       document.getElementById("economyAvail").innerHTML = Business.economyAvail();
+	                 
+	                       document.getElementById("midsizeAvail").innerHTML = Business.midsizeAvail();
+	            }
+	            
+           function rentEcon() {
+	           return Business.rentEconomy();
+	           
+	       }
+                   
+        	       
+	                   window.onload = function() {
+	       document.getElementById("economyAvail").innerHTML = this.economyAvail();        
+	       }
+	                   
+	                   window.onload = function() {
+	       document.getElementById("midsizeAvail").innerHTML = this.midsizeAvail();        
+	       }
+	       
+        	       
+	</script>
+</body>
+</html>
